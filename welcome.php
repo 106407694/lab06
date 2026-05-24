@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// If user is NOT logged in → go back to login
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
