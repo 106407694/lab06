@@ -14,13 +14,6 @@ session_start();
                     Invalid username or password. Please try again.
                 </div>
             <?php endif; ?>
-            
-            <?php if (isset($_GET['logout'])): ?>
-                <div class="message success">
-                    You have been successfully logged out.
-                </div>
-            <?php endif; ?>
-            
             <form id="loginForm" action="process.php" method="POST">
                 <div class="form-group">
                     <label>Username:</label>
@@ -32,17 +25,11 @@ session_start();
                     <input type="password" name="password" required>
                 </div>
                 
-                <!-- Hidden field -->
-                <input type="hidden" name="userToken" value="Y123456">
+                <input type="hidden" name="userToken" value="106407694">
                 
                 <button type="submit">Login</button>
             </form>
             
-            <div style="margin-top: 1.5rem;">
-                <p><strong>Demo:</strong></p>
-                <p>Username: admin</p>
-                <p>Password: 1234</p>
-            </div>
         </div>
     </div>
 </div>
