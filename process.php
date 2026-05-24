@@ -1,15 +1,25 @@
 <?php
+
 session_start();
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
-$userToken = $_POST['userToken'] ?? '';
-if ($username === 'Nahian' && $password === '106407694') {
-    $_SESSION['user'] = $username;
-    $_SESSION['token'] = $userToken;
-    header("Location: welcome.php");
-    exit();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $correctUsername = "Nahian";
+    $correctPassword = "106407694";
+
+    if ($username == $correctUsername && $password == $correctPassword) {
+        $_SESSION['user'] = $username;
+        header("Location: welcome.php");
+        exit();
+    } else {
+        header("Location: login.php?error=1");
+        exit();
+    }
 } else {
-    header("Location: login.php?error=1");
+    header("Location: login.php");
     exit();
 }
 ?>
