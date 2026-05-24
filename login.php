@@ -1,37 +1,20 @@
-<?php
-session_start();
-?>
-
 <?php include 'header.inc'; ?>
+<h2>Login Form</h2>
+<?php
+if (isset($_GET['error'])) {
+    echo "<p style='color:red;'>Invalid username or password!</p>";
+}
+?>
+<form method="POST" action="process.php">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-<div class="container">
-    <div class="main-content">
-        <div class="card">
-            <h2>Login Form</h2>
-            
-            <?php if (isset($_GET['error'])): ?>
-                <div class="message error">
-                    Invalid username or password. Please try again.
-                </div>
-            <?php endif; ?>
-            <form id="loginForm" action="process.php" method="POST">
-                <div class="form-group">
-                    <label>Username:</label>
-                    <input type="text" name="username" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" name="password" required>
-                </div>
-                
-                <input type="hidden" name="userToken" value="106407694">
-                
-                <button type="submit">Login</button>
-            </form>
-            
-        </div>
-    </div>
-</div>
+    <br><br>
 
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+    <input type="hidden" name="token" value="n106407694">
+    <input type="submit" value="Login">
+</form>
 <?php include 'footer.inc'; ?>
