@@ -1,19 +1,14 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit();
 }
 ?>
-
 <?php include 'header.inc'; ?>
-
-<h3>Welcome Page</h3>
-
-<p>Hello <?php echo $_SESSION['user']; ?></p>
-
-<br>
-<a href="logout.php">Logout</a>
-
+<h2>Welcome Page</h2>
+<p>
+    Welcome,
+    <strong><?php echo $_SESSION['user']; ?></strong>
+</p>
 <?php include 'footer.inc'; ?>
